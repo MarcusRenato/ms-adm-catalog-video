@@ -8,7 +8,7 @@ use Core\Domain\Exceptions\PropertyNotFoundException;
 
 trait MethodMagicsTrait
 {
-    /** @throws PropertyNotFoundException*/
+    /** @throws PropertyNotFoundException */
     public function __get(string $name)
     {
         if (isset($this->{$name})) {
