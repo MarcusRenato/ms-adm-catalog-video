@@ -15,6 +15,6 @@ class PropertyNotFoundException extends Exception
 
     private function createMessage(string $property, string $className): string
     {
-        return "Property {$property} nor found in {$className}.";
+        return "Property {$property} not found in {$className}.";
     }
 }
