@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Core\Domain\Entity\Traits;
 
 use Core\Domain\Exceptions\PropertyNotFoundException;
-use Exception;
 
 trait MethodMagicsTrait
 {
-    /** @throws Exception */
+    /** @throws PropertyNotFoundException*/
     public function __get(string $name)
     {
         if (isset($this->{$name})) {
