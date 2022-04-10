@@ -12,7 +12,7 @@ trait MethodMagicsTrait
     /** @throws Exception */
     public function __get(string $name)
     {
-        if ($this->{$name}) {
+        if (isset($this->{$name})) {
             return $this->{$name};
         }
 
