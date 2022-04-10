@@ -1,0 +1,18 @@
+{
+    "name": "marcusrenato/ms-adm-catalog-video",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/Core"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcus Renato",
+            "email": "marcusrenato@live.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.5"
+    }
+}
