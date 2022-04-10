@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Core\Domain\Entity\Traits;
 
+use Core\Domain\Exceptions\PropertyNotFoundException;
 use Exception;
 
 trait MethodMagicsTrait
@@ -15,8 +16,8 @@ trait MethodMagicsTrait
             return $this->{$name};
         }
 
-        $clasName = get_class($this);
+        $className = get_class($this);
 
-        throw new Exception(message: "Property {$name} nor found in {$clasName}.");
+        throw new PropertyNotFoundException($name, $className);
     }
 }
