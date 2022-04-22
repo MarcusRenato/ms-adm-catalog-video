@@ -76,6 +76,7 @@ class CategoryTest extends TestCase
     public function testExceptionName(): void
     {
         $this->expectException(EntityValidationException::class);
+        $this->expectErrorMessage('Name is invalid.');
 
         new Category(name: 'Ne');
     }
@@ -83,7 +84,16 @@ class CategoryTest extends TestCase
     public function testExceptionDescription(): void
     {
         $this->expectException(EntityValidationException::class);
+        $this->expectErrorMessage('Description is invalid.');
 
         new Category(name: 'Nez Name', description: 'de');
+    }
+
+    public function testThrowExceptionWhenDescriptionIsMoreGreaterThan255(): void
+    {
+        $this->expectException(EntityValidationException::class);
+        $this->expectErrorMessage('Description is invalid.');
+
+        new Category(name: 'Nez Name', description: random_bytes(length: 299));
     }
 }
