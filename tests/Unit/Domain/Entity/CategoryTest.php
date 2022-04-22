@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Unit\Domain\Entity;
 
 use Core\Domain\Entity\Category;
+use Core\Domain\Exceptions\EntityValidationException;
+use Core\Domain\Exceptions\PropertyNotFoundException;
 use PHPUnit\Framework\TestCase;
 
 class CategoryTest extends TestCase
@@ -69,5 +71,19 @@ class CategoryTest extends TestCase
             expected: 'Update description',
             actual: $category->description
         );
+    }
+
+    public function testExceptionName(): void
+    {
+        $this->expectException(EntityValidationException::class);
+
+        new Category(name: 'Ne');
+    }
+
+    public function testExceptionDescription(): void
+    {
+        $this->expectException(EntityValidationException::class);
+
+        new Category(name: 'Nez Name', description: 'de');
     }
 }
